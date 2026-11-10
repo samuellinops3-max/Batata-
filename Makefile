@@ -3,8 +3,8 @@ $(error "Defina a variavel PSL1GHT")
 endif
 include $(PSL1GHT)/ppu_rules
 .DEFAULT_GOAL := all
-TARGET    := cobra
-TITLE     := BATATINHA 3D
+TARGET    := round-six
+TITLE     := ROUND 6 BATATINHA 3D
 APPID     := RND600001
 CONTENTID := UP0001-$(APPID)_00-0000000000000000
 SFOXML    := sfo.xml
