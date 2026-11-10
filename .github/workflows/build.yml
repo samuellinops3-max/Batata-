@@ -2,8 +2,6 @@ name: Compilar PKG
 on:
   push:
   workflow_dispatch:
-permissions:
-  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -45,9 +43,9 @@ jobs:
         run: |
           make
           ls -lh *.pkg
-      - name: Publicar PKG direto sem ZIP
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TAG="v$(date +%Y%m%d-%H%M%S)"
-          gh release create "$TAG" cobra.pkg --title "BATATINHA 3D $TAG" --notes "Baixa o cobra.pkg direto aqui, sem ZIP!"
+      - name: Upload PKG
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: batatinha-3d-pkg
+          path: "*.pkg"
