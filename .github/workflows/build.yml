@@ -42,10 +42,12 @@ jobs:
       - name: Compilar
         run: |
           make
+          echo "=== QUAL PKG FOI CRIADO? ==="
           ls -lh *.pkg
-      - name: Upload PKG
+          ls -lh
+      - name: Upload PKG ZIP
         uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: batatinha-3d-pkg
+          name: round-six-pkg
           path: "*.pkg"
+          if-no-files-found: warn
