@@ -9,7 +9,7 @@
   <value name="PS3_SYSTEM_VER" type="string">00.0000</value>
   <value name="RESOLUTION" type="integer">63</value>
   <value name="SOUND_FORMAT" type="integer">1</value>
-  <value name="TITLE" type="string">Batatinha Frita 1, 3</value>
-  <value name="TITLE_ID" type="string">BATA00001</value>
+  <value name="TITLE" type="string">BATATINHA 3D</value>
+  <value name="TITLE_ID" type="string">RND600001</value>
   <value name="VERSION" type="string">01.00</value>
 </sfo>
