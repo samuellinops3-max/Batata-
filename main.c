@@ -313,7 +313,8 @@ static void gfx_init(void)
 	buf_size = fb_pitch * fb_height;
 	for (i = 0; i < 2; i++) {
 		fb[i] = rsxMemalign(64, buf_size);
-		fb_offset[i] = rsxAddressToOffset(fb[i]);
+		/* CORRIGIDO: rsxAddressToOffset devolve status e grava o offset no 2o argumento */
+		rsxAddressToOffset(fb[i], &fb_offset[i]);
 		gcmSetDisplayBuffer(i, fb_offset[i], fb_pitch, fb_width, fb_height);
 	}
 }
@@ -481,7 +482,8 @@ static void game_render(void)
 
 int main(void)
 {
-	sysRegisterCallback(SYSUTIL_EVENT_SLOT0, sysutil_cb, NULL);
+	/* CORRIGIDO: o nome certo e sysUtilRegisterCallback */
+	sysUtilRegisterCallback(SYSUTIL_EVENT_SLOT0, sysutil_cb, NULL);
 
 	gfx_init();
 	input_init();
